@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 20px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.offcanvas-body img {
+  height: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.offcanvas-body ul {
+  list-style-type: none;
+}
+
+.offcanvas-body li {
+  margin-bottom: 20px;
+}
+
+.offcanvas-body li a {
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--color-main-green-v1);
+  font-weight: 500;
+}
+
+.search-area {
+  height: 40vh;
+  width: 100%;
+  background: url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+}
+
+.search-area__search-box input[type="search"] {
+  border-color: var(--color-main-green-v1);
+}
+
+.search-area__search-box input[type="search"]::placeholder {
+  font-size: 14px;
+}

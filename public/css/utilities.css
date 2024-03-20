@@ -1,0 +1,19 @@
+:root {
+  --color-main-blue-v1: #2c394a;
+  --color-main-blue-v2: #2b404e;
+  --color-main-green-v1: #58bdaa;
+}
+
+.fit-contain {
+  object-fit: contain;
+}
+
+.common-button {
+  background-color: var(--color-main-green-v1);
+  color: #fff;
+}
+
+.common-shadow {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}

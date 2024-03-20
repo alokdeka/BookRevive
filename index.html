@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="./public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./public/css/main.css">
+</head>
+
+<body>
+    <!-- ======================================================== Navbar ======================================================= -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-sm-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">Second Hand Reads</a>
+            <button class="btn menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
+                aria-controls="offcanvasMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link common-button rounded" href="#">Post Free Ad</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="static" tabindex="-1"
+        id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasMenuLabel"></h5>
+            <button type="button" class="btn-close" id="offcanvasMenuCloseBtn" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9UdkG68P9AHESMfKJ-2Ybi9pfnqX1tqx3wQ&usqp=CAU"
+                    alt="Profile">
+            </div>
+            <ul>
+                <li>
+                    <a aria-current="page" href="#">Home</a>
+                </li>
+                <li>
+                    <a aria-current="page" href="#">My profile</a>
+                </li>
+                <li>
+                    <a aria-current="page" href="#">Subscriptions</a>
+                </li>
+                <li>
+                    <a aria-current="page" href="#">My ads</a>
+                </li>
+                <li>
+                    <a aria-current="page" href="#">Post free ad</a>
+                </li>
+                <li>
+                    <a href="#">Login</a>
+                </li>
+                <li>
+                    <a href="#">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- ===================================================== Navbar ends ===================================================== -->
+
+    <!-- ======================================================== Main ======================================================= -->
+    <section class="search-area d-flex justify-content-center align-items-center flex-column">
+        <h2 class="text-center fw-bold fs-1">Search Classified Ads</h2>
+        <p class="text-center">Find local classified ads on bootclassified in Minutes</p>
+
+        <div class="search-area__search-box d-flex">
+            <input type="search" class="form-control rounded-0" id="searchQuery" name="searchQuery"
+                placeholder="Type book or author">
+            <button class="btn common-button rounded-0">Find</button>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <h2 class="mb-4">Fresh recommendations</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+            <div class="col">
+                <div class="card featured-product border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card featured-product border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 common-shadow pt-3">
+                    <img class="fit-contain card-img-top"
+                        src="https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg" width="100%"
+                        height="225" alt="">
+                    <div class="card-body">
+                        <p class="card-text mb-0 fs-4 fw-bold">&#8377; 799</p>
+                        <p class="card-text">Automata Theory</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Guwahati, Assam</small>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===================================================== Main ends ===================================================== -->
+
+    <!-- ======================================================== Footer ======================================================= -->
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+            </ul>
+            <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+        </footer>
+    </div>
+    <!-- ===================================================== Footer ends ===================================================== -->
+    <script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/main.js"></script>
+</body>
+
+</html>
