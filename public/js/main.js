@@ -12,59 +12,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //   ================================================================================
+  let jsonDataArray = []; // Array to hold all JSON data
+  let itemsPerPage = 4; // Number of items to load per page
+  let currentPage = 1; // Current page number
+  let currentItemsIndex = 0; // Index of the first item to load
 
-  // Define an array of JSON objects
-  const jsonDataArray = [
-    {
-      imageUrl:
-        "https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg",
-      price: "&#8377; 799",
-      title: "Automata Theory",
-      location: "Guwahati, Assam",
-      time: "9 mins",
-    },
-    {
-      imageUrl:
-        "https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg",
-      price: "&#8377; 499",
-      title: "Data Structures and Algorithms",
-      location: "Delhi, India",
-      time: "15 mins",
-    },
-    {
-      imageUrl:
-        "https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg",
-      price: "&#8377; 799",
-      title: "Automata Theory",
-      location: "Guwahati, Assam",
-      time: "9 mins",
-    },
-    {
-      imageUrl:
-        "https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg",
-      price: "&#8377; 499",
-      title: "Data Structures and Algorithms",
-      location: "Delhi, India",
-      time: "15 mins",
-    },
-    {
-      imageUrl:
-        "https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg",
-      price: "&#8377; 799",
-      title: "Automata Theory",
-      location: "Guwahati, Assam",
-      time: "9 mins",
-    },
-    {
-      imageUrl:
-        "https://m.media-amazon.com/images/I/816J67jnBCL._AC_UF1000,1000_QL80_.jpg",
-      price: "&#8377; 499",
-      title: "Data Structures and Algorithms",
-      location: "Delhi, India",
-      time: "15 mins",
-    },
-    // Add more JSON objects as needed
-  ];
+  // Function to fetch JSON data from another file
+  async function fetchJSONDataFromFile(url) {
+    try {
+      const response = await fetch(url); // Fetch JSON data from the specified URL
+      const jsonData = await response.json(); // Parse JSON response
+      return jsonData; // Return the parsed JSON data
+    } catch (error) {
+      console.error("Error fetching JSON data:", error);
+      throw error; // Throw error for handling by the caller
+    }
+  }
 
   // Function to create and append loader
   function showLoader() {
@@ -92,18 +55,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const card = document.createElement("div");
     card.classList.add("col");
     card.innerHTML = `
-      <div class="card featured-product border-0 common-shadow pt-3">
-        <img class="fit-contain card-img-top" src="${jsonData.imageUrl}" width="100%" height="225" alt="">
-        <div class="card-body">
-          <p class="card-text mb-0 fs-4 fw-bold">${jsonData.price}</p>
-          <p class="card-text">${jsonData.title}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <small class="text-body-secondary">${jsonData.location}</small>
-            <small class="text-body-secondary">${jsonData.time}</small>
+          <div class="card featured-product border-0 common-shadow pt-3">
+            <img class="fit-contain card-img-top" src="${jsonData.imageUrl}" width="100%" height="225" alt="">
+            <div class="card-body">
+              <p class="card-text mb-0 fs-4 fw-bold">${jsonData.price}</p>
+              <p class="card-text">${jsonData.title}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">${jsonData.location}</small>
+                <small class="text-body-secondary">${jsonData.time}</small>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    `;
+        `;
 
     // Get the container to append the card
     const container = document.getElementById("loadedContent");
@@ -113,27 +76,61 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Function to load JSON data after a delay
-  function loadJSONAfterDelay(jsonDataArray) {
+  async function loadJSONAfterDelay() {
     // Show loader while loading content
     showLoader();
     // Simulate a delay of 2 seconds
-    setTimeout(() => {
-      // Iterate over each JSON object in the array
-      jsonDataArray.forEach((jsonData, index) => {
-        // Call the function to load content from the JSON object
-        loadContentFromJSON(jsonData);
-        // Add any additional logic here if needed
-      });
+    try {
+      // Fetch JSON data from another file
+      jsonDataArray = await fetchJSONDataFromFile("data.json"); // Replace 'data.json' with the path to your JSON file
+      // Load initial items
+      loadNextItems();
       // Hide loader after content is loaded
       hideLoader();
-    }, 2000); // 2 seconds delay
+    } catch (error) {
+      // Handle error if fetching data fails
+      hideLoader(); // Hide loader
+      console.error("Error loading JSON data:", error);
+      // You can add additional error handling logic here
+    }
+  }
+
+  // Function to load next items
+  function loadNextItems() {
+    const endIndex = Math.min(
+      currentItemsIndex + itemsPerPage,
+      jsonDataArray.length
+    );
+    for (let i = currentItemsIndex; i < endIndex; i++) {
+      loadContentFromJSON(jsonDataArray[i]);
+    }
+    currentItemsIndex = endIndex;
   }
 
   // Attach the loadJSONAfterDelay function to the window.onload event
   window.onload = () => {
     // Call the function to load JSON data after the page loads
-    loadJSONAfterDelay(jsonDataArray);
+    loadJSONAfterDelay();
   };
+
+  // Event listener for the Load More button
+  document.getElementById("loadMoreBtn").addEventListener("click", () => {
+    // Show loader while loading content
+    showLoader();
+
+    // Simulate a delay of 2 seconds
+    setTimeout(() => {
+      loadNextItems();
+
+      // Check if there are more items to load
+      if (currentItemsIndex >= jsonDataArray.length) {
+        document.getElementById("loadMoreBtn").style.display = "none"; // Hide the Load More button
+      }
+
+      // Hide loader after content is loaded
+      hideLoader();
+    }, 2000); // 2 seconds delay
+  });
 
   //   ================================================================================
 
